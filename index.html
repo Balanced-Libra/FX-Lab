@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =============================================
+       DOCUMENT METADATA
+       ============================================= -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <!-- Primary Meta Tags -->
+  <title>FX-Lab — Interactive Web Effects Playground</title>
+  <meta name="title" content="FX-Lab — Interactive Web Effects Playground" />
+  <meta name="description" content="Explore 60+ interactive web effects for modern development. From CSS animations to WebGL shaders, with live demos and copyable code." />
+  <meta name="keywords" content="web effects, css animations, javascript demos, interactive playground, webgl, canvas, svg effects, ui patterns" />
+  <meta name="author" content="Your Name" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FX-Lab — Interactive Web Effects Playground" />
+  <meta property="og:description" content="Explore 60+ interactive web effects with live demos and copyable code" />
+  <meta property="og:url" content="https://yourusername.github.io/fx-lab/" />
+  <meta property="og:image" content="https://yourusername.github.io/fx-lab/preview.png" />
+  <meta property="og:site_name" content="FX-Lab" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="FX-Lab — Interactive Web Effects Playground" />
+  <meta property="twitter:description" content="Explore 60+ interactive web effects with live demos and copyable code" />
+  <meta property="twitter:image" content="https://yourusername.github.io/fx-lab/preview.png" />
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#0b0c0f" />
+  <meta name="msapplication-TileColor" content="#0b0c0f" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  
+  <!-- =============================================
+       STYLESHEETS
+       ============================================= -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- =============================================
+       HEADER / TOPBAR
+       ============================================= -->
+  <header class="topbar">
+    <h1>FX-Lab</h1>
+    <div class="glass-reflection"></div>
+    <div class="controls">
+      <label for="search" class="visually-hidden">Search effects and tags</label>
+      <input id="search" type="search" placeholder="Search effects, tags…" aria-label="Search effects" />
+      <button id="themeToggle" class="btn ghost" aria-label="Toggle theme" title="Press T to toggle theme" type="button">🌓</button>
+    </div>
+    <div id="tags" class="tagbar" aria-label="Tags"></div>
+  </header>
+
+  <!-- =============================================
+       MAIN CONTENT
+       ============================================= -->
+  <main>
+    <!-- JavaScript warning for debugging -->
+    <div id="js-warning" style="max-width:1200px;margin:16px auto;padding:12px 16px;border:1px solid #8b0000;color:#ffbdbd;background:#250000;border-radius:8px">
+      If you see this, JavaScript didn't load. Try saving and reloading the page.
+    </div>
+    
+    <!-- Welcome banner -->
+    <div id="welcomeBanner" class="welcome-banner" style="display:none">
+      <div class="welcome-content">
+        <h2>🎨 Welcome to FX-Lab</h2>
+        <p>Explore 60+ interactive effects. Use <kbd>/</kbd> to search, click tags to filter, or just browse around!</p>
+        <button class="btn" onclick="closeWelcome()">Get Started</button>
+      </div>
+    </div>
+    
+    <!-- Grid container for effect cards -->
+    <section class="grid" id="grid" aria-live="polite"></section>
+  </main>
+  
+  <script>
+    // Show welcome banner on first visit
+    if (!localStorage.getItem('fx-lab-visited')) {
+      document.getElementById('welcomeBanner').style.display = 'block';
+    }
+    window.closeWelcome = () => {
+      document.getElementById('welcomeBanner').style.display = 'none';
+      localStorage.setItem('fx-lab-visited', 'true');
+    };
+  </script>
+
+  <!-- =============================================
+       MODAL DIALOG
+       ============================================= -->
+  <dialog id="demoModal">
+    <div class="modal-head">
+      <h2 id="demoTitle">Demo</h2>
+      <div style="display:flex;gap:8px">
+        <button id="codeBtn" class="btn ghost" aria-label="View Code">📄 Code</button>
+        <button id="closeModal" class="btn ghost" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div id="sandbox" class="sandbox" aria-label="Demo sandbox"></div>
+      <aside id="explain" class="explain" aria-label="Explanation"></aside>
+    </div>
+    <div id="codePanel" class="code-panel" style="display:none">
+      <div class="code-header">
+        <span>Source Code</span>
+        <button class="copy-code btn ghost">📋 Copy</button>
+      </div>
+      <pre class="code-content"></pre>
+    </div>
+    <div class="meta">
+      <span id="metaType"></span> •
+      <span id="metaLoad"></span> •
+      <span id="metaTags"></span>
+    </div>
+  </dialog>
+
+  <!-- =============================================
+       SCRIPTS
+       ============================================= -->
+  
+  <!-- Core Configuration -->
+  <script src="src/config/constants.js"></script>
+  <script src="src/config/categories.js"></script>
+  <script src="src/core/EffectsRegistry.js"></script>
+  <script src="js/effects-registry.js"></script>
+  
+  <!-- Core Effects -->
+  <script src="js/effects/magnetic-button.js"></script>
+  <script src="js/effects/particle-fountain.js"></script>
+  <script src="js/effects/pulse-border.js"></script>
+  <script src="js/effects/tilt-card.js"></script>
+  <script src="js/effects/svg-path-draw.js"></script>
+  <script src="js/effects/mini-parallax.js"></script>
+  <script src="js/effects/ripple-button.js"></script>
+  <script src="js/effects/confetti-click.js"></script>
+  <script src="js/effects/gooey-blobs.js"></script>
+  <script src="js/effects/scroll-reveal.js"></script>
+  <script src="js/effects/flip-card.js"></script>
+  <script src="js/effects/springy-drag.js"></script>
+  <script src="js/effects/shimmer-skeleton.js"></script>
+  <script src="js/effects/svg-text-on-path.js"></script>
+  <script src="js/effects/text-scramble.js"></script>
+  <script src="js/effects/scroll-snap-carousel.js"></script>
+  <script src="js/effects/spotlight-reveal.js"></script>
+  <script src="js/effects/svg-morph-blob.js"></script>
+  <script src="js/effects/canvas-starfield.js"></script>
+  <script src="js/effects/form-strength.js"></script>
+  <script src="js/effects/matrix-rain.js"></script>
+  <script src="js/effects/scroll-progress.js"></script>
+  <script src="js/effects/typewriter.js"></script>
+  <script src="js/effects/css-accordion.js"></script>
+  <script src="js/effects/flip-grid-shuffle.js"></script>
+  <script src="js/effects/scroll-pin-steps.js"></script>
+  
+  <!-- Additional Effects -->
+  <script src="js/effects/filter-playground.js"></script>
+  <script src="js/effects/svg-circular-timer.js"></script>
+  <script src="js/effects/image-compare.js"></script>
+  <script src="js/effects/audio-visualizer.js"></script>
+  <script src="js/effects/svg-analog-clock.js"></script>
+  <script src="js/effects/canvas-metaballs.js"></script>
+  <script src="js/effects/css-3d-cube.js"></script>
+  <script src="js/effects/canvas-bouncing-balls.js"></script>
+  <script src="js/effects/svg-mini-line-chart.js"></script>
+  <script src="js/effects/clipboard-toast.js"></script>
+  <script src="js/effects/css-masonry-columns.js"></script>
+  <script src="js/effects/drag-sort-list.js"></script>
+  <script src="js/effects/lazy-images.js"></script>
+  <script src="js/effects/cursor-trail.js"></script>
+  <script src="js/effects/css-conic-pie.js"></script>
+  <script src="js/effects/canvas-fireworks.js"></script>
+  <script src="js/effects/css-glass-frosted.js"></script>
+  <script src="js/effects/js-countup.js"></script>
+  <script src="js/effects/split-resizer.js"></script>
+  <script src="js/effects/clip-reveal-grid.js"></script>
+  <script src="js/effects/wasd-move.js"></script>
+  <script src="js/effects/webgl-plasma.js"></script>
+  <script src="js/effects/device-tilt-parallax.js"></script>
+  <script src="js/effects/pan-zoom-viewer.js"></script>
+  <script src="js/effects/infinite-scroll.js"></script>
+  <script src="js/effects/hamburger-toggle.js"></script>
+  <script src="js/effects/dropzone-preview.js"></script>
+  <script src="js/effects/css-container-card.js"></script>
+  <script src="js/effects/svg-path-draw-2.js"></script>
+  <script src="js/effects/audio-oscilloscope.js"></script>
+  <script src="js/effects/drag-reorder-list.js"></script>
+  <script src="js/effects/css-shape-outside.js"></script>
+  <script src="js/effects/worker-primes.js"></script>
+  <script src="js/effects/a11y-contrast-checker.js"></script>
+  <script src="js/effects/css-neon-text.js"></script>
+  <script src="js/effects/canvas-flow-field.js"></script>
+  <script src="js/effects/svg-text-mask-wave.js"></script>
+  <script src="js/effects/css-seamless-marquee.js"></script>
+  <script src="js/effects/js-smart-tooltip.js"></script>
+  <script src="js/effects/canvas-pixelate.js"></script>
+  <script src="js/effects/css-radar-sweep.js"></script>
+  <script src="js/effects/css-radio-tabs.js"></script>
+  <script src="js/effects/js-table-sort-search.js"></script>
+  <script src="js/effects/js-theme-toggle-card.js"></script>
+  <script src="js/effects/form-star-rating.js"></script>
+  <script src="js/effects/css-gradient-border.js"></script>
+  
+  <!-- Effect Registration -->
+  <script>
+    // Register core effects
+    EFFECTS_REGISTRY.registerEffect(effectMagneticButton);
+    EFFECTS_REGISTRY.registerEffect(effectParticleFountain);
+    EFFECTS_REGISTRY.registerEffect(effectCssPulseBorder);
+    EFFECTS_REGISTRY.registerEffect(effectTiltCard);
+    EFFECTS_REGISTRY.registerEffect(effectSvgPathDraw_v2);
+    EFFECTS_REGISTRY.registerEffect(effectMiniParallax);
+    EFFECTS_REGISTRY.registerEffect(effectRippleButton);
+    EFFECTS_REGISTRY.registerEffect(effectConfettiClick);
+    EFFECTS_REGISTRY.registerEffect(effectSvgGooeyBlobs);
+    EFFECTS_REGISTRY.registerEffect(effectScrollReveal);
+    EFFECTS_REGISTRY.registerEffect(effectCssFlipCard);
+    EFFECTS_REGISTRY.registerEffect(effectSpringyDrag);
+    EFFECTS_REGISTRY.registerEffect(effectCssShimmer);
+    EFFECTS_REGISTRY.registerEffect(effectSvgTextOnPath);
+    EFFECTS_REGISTRY.registerEffect(effectTextScramble);
+    EFFECTS_REGISTRY.registerEffect(effectScrollSnapCarousel);
+    EFFECTS_REGISTRY.registerEffect(effectSpotlightReveal);
+    EFFECTS_REGISTRY.registerEffect(effectSvgMorphBlob);
+    EFFECTS_REGISTRY.registerEffect(effectCanvasStarfield);
+    EFFECTS_REGISTRY.registerEffect(effectFormStrength);
+    EFFECTS_REGISTRY.registerEffect(effectMatrixRain);
+    EFFECTS_REGISTRY.registerEffect(effectScrollProgress);
+    EFFECTS_REGISTRY.registerEffect(effectTypewriter);
+    EFFECTS_REGISTRY.registerEffect(effectCssAccordion);
+    EFFECTS_REGISTRY.registerEffect(effectFlipGridShuffle);
+    EFFECTS_REGISTRY.registerEffect(effectScrollPinSteps);
+    
+    // Register additional effects
+    EFFECTS_REGISTRY.registerEffect(effectFilterPlayground);
+    EFFECTS_REGISTRY.registerEffect(effectSvgCircularTimer);
+    EFFECTS_REGISTRY.registerEffect(effectImageCompare);
+    EFFECTS_REGISTRY.registerEffect(effectAudioVisualizer);
+    EFFECTS_REGISTRY.registerEffect(effectSvgAnalogClock);
+    EFFECTS_REGISTRY.registerEffect(effectCanvasMetaballs);
+    EFFECTS_REGISTRY.registerEffect(effectCss3DCube);
+    EFFECTS_REGISTRY.registerEffect(effectCanvasBouncingBals);
+    EFFECTS_REGISTRY.registerEffect(effectSvgMiniLineChart);
+    EFFECTS_REGISTRY.registerEffect(effectClipboardToast);
+    EFFECTS_REGISTRY.registerEffect(effectCssMasonryColumns);
+    EFFECTS_REGISTRY.registerEffect(effectDragSortList);
+    EFFECTS_REGISTRY.registerEffect(effectLazyImages);
+    EFFECTS_REGISTRY.registerEffect(effectCursorTrail);
+    EFFECTS_REGISTRY.registerEffect(effectCssConicPie);
+    EFFECTS_REGISTRY.registerEffect(effectCanvasFireworks);
+    EFFECTS_REGISTRY.registerEffect(effectCssGlassFrosted);
+    EFFECTS_REGISTRY.registerEffect(effectJsCountUp);
+    EFFECTS_REGISTRY.registerEffect(effectSplitResizer);
+    EFFECTS_REGISTRY.registerEffect(effectClipRevealGrid);
+    EFFECTS_REGISTRY.registerEffect(effectWASDMove);
+    EFFECTS_REGISTRY.registerEffect(effectWebglPlasma);
+    EFFECTS_REGISTRY.registerEffect(effectDeviceTiltParallax);
+    EFFECTS_REGISTRY.registerEffect(effectPanZoomViewer);
+    EFFECTS_REGISTRY.registerEffect(effectInfiniteScroll);
+    EFFECTS_REGISTRY.registerEffect(effectHamburgerToggle);
+    EFFECTS_REGISTRY.registerEffect(effectDropzonePreview);
+    EFFECTS_REGISTRY.registerEffect(effectCssContainerCard);
+    EFFECTS_REGISTRY.registerEffect(effectSvgPathDraw);
+    EFFECTS_REGISTRY.registerEffect(effectAudioOscilloscope);
+    EFFECTS_REGISTRY.registerEffect(effectDragReorderList);
+    EFFECTS_REGISTRY.registerEffect(effectCssShapeOutside);
+    EFFECTS_REGISTRY.registerEffect(effectWorkerPrimes);
+    EFFECTS_REGISTRY.registerEffect(effectA11yContrast);
+    EFFECTS_REGISTRY.registerEffect(effectCssNeonText);
+    EFFECTS_REGISTRY.registerEffect(effectCanvasFlowField);
+    EFFECTS_REGISTRY.registerEffect(effectSvgTextMaskWave);
+    EFFECTS_REGISTRY.registerEffect(effectCssMarquee);
+    EFFECTS_REGISTRY.registerEffect(effectSmartTooltip);
+    EFFECTS_REGISTRY.registerEffect(effectCanvasPixelate);
+    EFFECTS_REGISTRY.registerEffect(effectCssRadarSweep);
+    EFFECTS_REGISTRY.registerEffect(effectCssRadioTabs);
+    EFFECTS_REGISTRY.registerEffect(effectTableSortSearch);
+    EFFECTS_REGISTRY.registerEffect(effectThemeToggleCard);
+    EFFECTS_REGISTRY.registerEffect(effectStarRating);
+    EFFECTS_REGISTRY.registerEffect(effectCssGradientBorder);
+  </script>
+  
+  <!-- Application Modules -->
+  <script src="src/core/Background.js"></script>
+  <script src="src/core/ThemeManager.js"></script>
+  <script src="src/core/KeyboardHandler.js"></script>
+  <script src="src/ui/utils/magnetic.js"></script>
+  <script src="src/ui/utils/tags.js"></script>
+  <script src="src/ui/utils/code-view.js"></script>
+  <script src="src/ui/utils/fluid-glass.js"></script>
+  
+  <!-- Core application logic -->
+  <script src="js/constants.js"></script>
+  <script src="js/ui-helpers.js"></script>
+  <script src="js/app.js"></script>
+  
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
+</body>
+</html>

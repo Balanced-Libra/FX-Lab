@@ -1,0 +1,42 @@
+{
+  "name": "fx-lab",
+  "version": "0.5.0",
+  "description": "A beautiful interactive playground for exploring modern web effects",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "start": "python -m http.server 8000",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "web",
+    "effects",
+    "animations",
+    "css",
+    "javascript",
+    "interactive",
+    "playground",
+    "demo",
+    "ui",
+    "ux",
+    "canvas",
+    "webgl",
+    "svg",
+    "portfolio",
+    "reference"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/fx-lab.git"
+  },
+  "homepage": "https://yourusername.github.io/fx-lab",
+  "bugs": {
+    "url": "https://github.com/yourusername/fx-lab/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
+
