@@ -227,12 +227,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📮 Contact & Links
 
-- **Live Demo**: [Coming soon]
-- **GitHub Issues**: https://github.com/yourusername/fx-lab/issues
-- **Portfolio**: [Update with your portfolio URL]
+- **Live Demo**: [[Website]](https://fx-lab.netlify.app/)
+- **GitHub Issues**: https://github.com/Balanced-Libra/fx-lab/issues
+- **Portfolio**: [[Portfolio](https://guyjames.site]
 
 ---
 
 **Made with ❤️ for developers who love beautiful, interactive web experiences**
-
-*Part of the [Your Name] Development Portfolio*
