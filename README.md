@@ -227,7 +227,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📮 Contact & Links
 
-- **Live Demo**: (https://fx-lab.netlify.app/)
+- **Live Demo**: https://fx-lab.netlify.app/
 - **GitHub Issues**: https://github.com/Balanced-Libra/fx-lab/issues
 - **Portfolio**: https://guyjames.site
 
