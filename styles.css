@@ -45,6 +45,10 @@
     white-space: nowrap;
     border-width: 0;
   }
+
+  #js-warning {
+    display: none;
+  }
   
   /* =============================================
    TOPBAR / HEADER
