@@ -7,8 +7,8 @@ const effectWASDMove = {
   description: `
     <h3>What this shows</h3>
     <ul>
-      <li>Keyboard state (keydown/keyup) + rAF loop.</li>
-      <li>Movement with acceleration &amp; damping; bounded stage.</li>
+      <li>A character you control with the W A S D keys, moving smoothly around a bounded play area.</li>
+      <li>Movement feels weighty — it accelerates when you press and coasts to a stop when you let go.</li>
     </ul>`,
   async load(){},
   init(container){

@@ -7,8 +7,8 @@ const effectLazyImages = {
   description: `
     <h3>What this shows</h3>
     <ul>
-      <li><code>IntersectionObserver</code> swaps <code>data-src</code> → <code>src</code> when visible.</li>
-      <li>Simple skeleton shimmer until load.</li>
+      <li>Images only load when they scroll into view, keeping the page fast on first visit.</li>
+      <li>A shimmering grey placeholder fills each slot until the image is ready.</li>
     </ul>`,
   async load(){},
   init(container){

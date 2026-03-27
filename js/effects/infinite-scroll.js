@@ -6,8 +6,10 @@ const effectInfiniteScroll = {
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>
-    <ul><li><code>IntersectionObserver</code> sentinel to load more items.</li>
-        <li>Fake latency + skeletons; stops after 5 pages.</li></ul>`,
+    <ul>
+      <li>A list that automatically loads more items as you scroll to the bottom — no button needed.</li>
+      <li>Skeleton placeholder cards appear briefly while the next batch loads, stopping after 5 pages.</li>
+    </ul>`,
   async load(){},
   init(container){
     container.innerHTML = `

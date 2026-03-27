@@ -7,8 +7,8 @@ const effectScrollPinSteps = {
   description: `
     <h3>What this shows</h3>
     <ul>
-      <li><code>position: sticky</code> to pin a panel while steps scroll.</li>
-      <li><code>IntersectionObserver</code> updates the pinned text.</li>
+      <li>A panel stays fixed on one side while a list of steps scrolls past it.</li>
+      <li>The pinned panel automatically updates its text to match whichever step is currently in view.</li>
     </ul>`,
   async load(){},
   init(container){

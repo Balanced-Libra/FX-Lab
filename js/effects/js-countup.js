@@ -7,8 +7,8 @@ const effectJsCountUp = {
   description: `
     <h3>What this shows</h3>
     <ul>
-      <li>Number counters that animate once when visible.</li>
-      <li><code>IntersectionObserver</code> + easing function.</li>
+      <li>Stat numbers that count up from zero the moment they scroll into view.</li>
+      <li>Each counter eases to a smooth stop, drawing the eye to the final value.</li>
     </ul>`,
   async load(){},
   init(container){

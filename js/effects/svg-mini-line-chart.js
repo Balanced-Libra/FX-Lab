@@ -7,8 +7,8 @@ const effectSvgMiniLineChart = {
   description: `
     <h3>What this shows</h3>
     <ul>
-      <li>Build an SVG path from data.</li>
-      <li>Pointer tracking + nearest point tooltip.</li>
+      <li>A live line chart drawn from data points, with a clean dark card layout.</li>
+      <li>Hover over the chart to see a tooltip snap to the nearest data point.</li>
     </ul>`,
   async load(){},
   init(container){

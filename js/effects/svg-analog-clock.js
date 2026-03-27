@@ -7,8 +7,8 @@ const effectSvgAnalogClock = {
   description: `
     <h3>What this shows</h3>
     <ul>
-      <li>SVG hands rotated with transforms.</li>
-      <li>Smooth second hand using <code>requestAnimationFrame</code>.</li>
+      <li>A minimal analog clock face showing the real current time.</li>
+      <li>The second hand moves with a smooth, continuous sweep rather than ticking.</li>
     </ul>`,
   async load(){},
   init(container){

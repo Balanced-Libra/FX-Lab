@@ -7,8 +7,8 @@ const effectSvgCircularTimer = {
   description: `
     <h3>What this shows</h3>
     <ul>
-      <li>Circle progress via <code>stroke-dashoffset</code>.</li>
-      <li>Simple JS timer with start/stop/reset.</li>
+      <li>A circular ring that drains away as time counts down, with the remaining seconds shown in the centre.</li>
+      <li>Start, stop, and reset buttons give full control over the countdown.</li>
     </ul>`,
   async load(){},
   init(container){

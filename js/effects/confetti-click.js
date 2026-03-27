@@ -7,9 +7,8 @@ const effectConfettiClick = {
     description: `
       <h3>What this shows</h3>
       <ul>
-        <li>Canvas draw loop with <code>requestAnimationFrame</code>.</li>
-        <li>Spawn particles on click; simple gravity + drag + rotation.</li>
-        <li>Clean teardown (cancel rAF, remove listeners).</li>
+        <li>Click anywhere to burst a shower of colourful confetti pieces from that spot.</li>
+        <li>Each piece tumbles, spins, and drifts downward under gravity before fading out.</li>
       </ul>
     `,
     async load(){},

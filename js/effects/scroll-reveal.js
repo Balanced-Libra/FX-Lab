@@ -7,8 +7,8 @@ const effectScrollReveal = {
     description: `
       <h3>What this shows</h3>
       <ul>
-        <li><code>IntersectionObserver</code> with a custom root (internal scroller).</li>
-        <li>Cards fade/slide in when 20% visible.</li>
+        <li>Cards start invisible and gently fade and slide into view as you scroll down to them.</li>
+        <li>Each card triggers independently, creating a staggered reveal as you move through the list.</li>
       </ul>
     `,
     async load(){},

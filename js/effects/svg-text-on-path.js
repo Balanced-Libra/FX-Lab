@@ -6,8 +6,10 @@ const effectSvgTextOnPath = {
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>
-    <ul><li><code>&lt;textPath&gt;</code> to bind text to a curve.</li>
-        <li>SMIL animation of <code>startOffset</code> to move it.</li></ul>`,
+    <ul>
+      <li>A line of text that follows the arc of a curved line, like writing on a rainbow.</li>
+      <li>The text slides continuously along the curve in a smooth, looping animation.</li>
+    </ul>`,
   async load(){},
   init(container){
     container.innerHTML = `

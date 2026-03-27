@@ -6,8 +6,10 @@ const effectTextScramble = {
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>
-    <ul><li>rAF-driven character scrambling.</li>
-        <li>Reveals target text progressively.</li></ul>`,
+    <ul>
+      <li>Text starts as a rapid blur of random characters that gradually resolves into the real message.</li>
+      <li>Each letter locks in one by one from left to right, creating a decoding effect.</li>
+    </ul>`,
   async load(){},
   init(container){
     container.innerHTML = `
