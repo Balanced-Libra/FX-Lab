@@ -2,7 +2,7 @@ const effectSvgPathDraw = {
   id: "svg-path-draw",
   name: "SVG Path Draw",
   type: "SVG",
-  tags: ["svg","typography","micro-interaction"],
+  tags: ["svg","typography","micro-interaction","minimal","playful"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>
