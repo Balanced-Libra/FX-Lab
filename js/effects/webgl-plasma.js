@@ -7,8 +7,8 @@ const effectWebglPlasma = {
   description: `
     <h3>What this shows</h3>
     <ul>
-      <li>Minimal WebGL: full-screen triangle + fragment shader.</li>
-      <li>Uniforms: resolution &amp; time; DPR-aware resize.</li>
+      <li>A full-screen, smoothly shifting colour field — warm oranges and teals rippling into each other like molten plasma.</li>
+      <li>Rendered entirely on the graphics card for silky-smooth motion at any size.</li>
     </ul>`,
   async load(){},
   init(container){

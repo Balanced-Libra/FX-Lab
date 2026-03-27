@@ -7,8 +7,8 @@ const effectSvgMorphBlob = {
   description: `
     <h3>What this shows</h3>
     <ul>
-      <li>SVG <code>&lt;animate&gt;</code> on the path's <code>d</code> attribute.</li>
-      <li>Compatible paths (same number of cubic curves) loop between shapes.</li>
+      <li>A soft, rounded shape that slowly morphs between different blob silhouettes on a seamless loop.</li>
+      <li>Filled with a blue-to-green gradient, giving it a calm, organic feel.</li>
     </ul>`,
   async load(){},
   init(container){

@@ -7,8 +7,8 @@ const effectCanvasMetaballs = {
     description: `
       <h3>What this shows</h3>
       <ul>
-        <li>Soft circles drawn to canvas, then CSS <code>filter: blur + contrast</code> for the goo merge.</li>
-        <li>Click to add blobs (up to 12).</li>
+        <li>Glowing blobs drift around the screen and melt together when they get close, like drops of liquid merging.</li>
+        <li>Click anywhere to add a new blob, up to 12 at once.</li>
       </ul>`,
     async load(){},
     init(container){

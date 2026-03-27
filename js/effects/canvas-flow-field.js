@@ -7,9 +7,9 @@ const effectCanvasFlowField = {
   description: `
     <h3>What this shows</h3>
     <ul>
-      <li>Lines advected by a pseudo-noise vector field.</li>
-      <li>Alpha fade trail for smooth motion.</li>
-      <li>Regenerate &amp; pause controls.</li>
+      <li>Thousands of tiny lines drift and curve across the screen as though carried by invisible currents of wind.</li>
+      <li>Older trails gently fade out, leaving a soft, ever-changing texture.</li>
+      <li>Regenerate shuffles the pattern; Pause freezes it in place.</li>
     </ul>`,
   async load(){},
   init(container){
