@@ -7,8 +7,8 @@ const effectSvgTextMaskWave = {
   description: `
     <h3>What this shows</h3>
     <ul>
-      <li><code>&lt;mask&gt;</code> to show a moving gradient only where text is.</li>
-      <li>CSS animation shifts the gradient for a wave effect.</li>
+      <li>Bold text filled with a flowing rainbow gradient that sweeps left to right on a loop.</li>
+      <li>The colour wash is visible only inside the letters, giving a striking neon sign look.</li>
     </ul>`,
   async load(){},
   init(container){

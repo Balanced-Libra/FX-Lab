@@ -7,8 +7,8 @@ const effectSvgPathDraw = {
   description: `
     <h3>What this shows</h3>
     <ul>
-      <li>Compute path lengths, set <code>stroke-dasharray</code>/<code>dashoffset</code>.</li>
-      <li>Replay by resetting offsets and triggering a reflow.</li>
+      <li>Three coloured lines draw themselves across the screen, each appearing as if a pen is tracing them in real time.</li>
+      <li>Hit Replay to watch all three lines draw again from the beginning.</li>
     </ul>`,
   async load(){},
   init(container){

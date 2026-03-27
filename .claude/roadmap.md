@@ -4,21 +4,23 @@ _Last updated: 2026-03-27_
 
 ## Priority Queue
 
-### P0 — Foundation (In Progress)
+### P0 — Foundation (Complete ✅)
 - [x] Create .claude/ memory structure
 - [x] Write CLAUDE.md coordinator brief
-- [ ] Teardown audit: verify all 72 effects have proper teardown()
-- [ ] Standards audit: verify all effects match required shape
-- [ ] Fix all identified bugs
+- [x] Teardown audit: all 72 effects verified — 4 bugs fixed
+- [x] Standards audit: descriptions, variable names, registration calls checked
+- [x] Fix all identified bugs
 
-### P1 — UI: Card Previews (Next Up)
-- [ ] Implement lazy hover preview system in app.js / styles.css
-- [ ] Each card shows a live mini-preview of the effect on hover
-- [ ] Preview tears down on mouseout (IntersectionObserver pattern)
-- [ ] Smooth fade-in transition on preview reveal
+### P1 — UI: Card Previews (Complete ✅)
+- [x] Implement lazy hover preview system in app.js / styles.css
+- [x] Each card shows a live mini-preview of the effect on hover
+- [x] Preview tears down on mouseout
+- [ ] Smooth fade-in transition on preview reveal — **next up**
 
 ### P2 — Client UX Polish
-- [ ] Add vibe tags to all effects: "calming", "energetic", "minimal", "bold", "playful", "dramatic"
+- [x] Add vibe tag system + filter UI (amber-styled, shown first)
+- [x] Add vibe tags to 49/72 effects
+- [ ] Add vibe tags to remaining 23 effects
 - [ ] Audit all description text — remove jargon, write in plain English
 - [ ] Add category sidebar / pill navigation (CSS / Canvas / WebGL / Audio / Interaction)
 - [ ] Add difficulty badge: "Simple" / "Intermediate" / "Advanced"
@@ -53,4 +55,6 @@ Target: grow from 72 to 100+ effects. Add 1-2 per week.
 
 ## Completed
 
-_Nothing completed yet — agency just launched._
+- **2026-03-27** — P0 Foundation: CLAUDE.md, .claude/ memory, Bug Hunter pass, 4 fixes
+- **2026-03-27** — P1 Card Previews: live hover preview, LIVE badge, 160px thumb, Run→Open button
+- **2026-03-27** — P2 Vibe tags: system built + 49 effects tagged + amber filter UI + search aliases
