@@ -2,7 +2,7 @@ const effectCanvasFlowField = {
   id: "canvas-flow-field",
   name: "Flow Field Lines",
   type: "JS/Canvas",
-  tags: ["canvas","particles","heavy"],
+  tags: ["canvas","particles","heavy","calming","minimal"],
   perf: "GPU/CPU medium",
   description: `
     <h3>What this shows</h3>

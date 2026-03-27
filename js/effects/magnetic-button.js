@@ -3,8 +3,15 @@ const effectMagneticButton = {
   id: "css-magnetic-button",
   name: "Magnetic Button Hover",
   type: "CSS",
-  tags: ["css","interaction","mobile-safe"],
+  tags: ["css","interaction","mobile-safe","playful","minimal"],
   perf: "GPU-light",
+  description: `
+    <h3>What this shows</h3>
+    <ul>
+      <li>A button that feels "magnetic" — it subtly shifts toward your cursor as you hover.</li>
+      <li>A radial highlight tracks your pointer position across the button surface.</li>
+      <li>Pure CSS custom properties updated by a tiny bit of JavaScript.</li>
+    </ul>`,
   async load(){},
   init(container){
     container.innerHTML = `

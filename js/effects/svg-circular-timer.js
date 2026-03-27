@@ -2,7 +2,7 @@ const effectSvgCircularTimer = {
   id: "svg-circular-timer",
   name: "Circular Timer",
   type: "SVG",
-  tags: ["svg","interaction","a11y"],
+  tags: ["svg","interaction","a11y","minimal","calming"],
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>

@@ -2,7 +2,7 @@ const effectScrollSnapCarousel = {
   id: "css-scroll-snap",
   name: "Scroll-Snap Carousel",
   type: "CSS",
-  tags: ["scroll","css"],
+  tags: ["scroll","css","minimal","bold"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

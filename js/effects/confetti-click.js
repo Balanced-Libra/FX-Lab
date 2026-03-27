@@ -2,7 +2,7 @@ const effectConfettiClick = {
     id: "canvas-confetti-click",
     name: "Confetti Burst (Click)",
     type: "JS/Canvas",
-    tags: ["canvas","particles"],
+    tags: ["canvas","particles","playful","energetic"],
     perf: "GPU/CPU medium",
     description: `
       <h3>What this shows</h3>

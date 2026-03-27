@@ -2,7 +2,7 @@ const effectThemeToggleCard = {
   id: "js-theme-toggle-card",
   name: "Theme Toggle (CSS Vars)",
   type: "JS+CSS",
-  tags: ["css","a11y","forms"],
+  tags: ["css","a11y","forms","minimal","playful"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

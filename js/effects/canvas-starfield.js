@@ -2,7 +2,7 @@ const effectCanvasStarfield = {
     id: "canvas-starfield",
     name: "Starfield (warp on click)",
     type: "JS/Canvas",
-    tags: ["canvas","particles"],
+    tags: ["canvas","particles","calming","dramatic"],
     perf: "GPU/CPU light",
     description: `
       <h3>What this shows</h3>

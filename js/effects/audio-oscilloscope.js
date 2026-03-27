@@ -2,7 +2,7 @@ const effectAudioOscilloscope = {
     id: "audio-oscilloscope",
     name: "WebAudio Oscilloscope",
     type: "JS/Canvas",
-    tags: ["audio","canvas","visualizer"],
+    tags: ["audio","canvas","visualizer","minimal","calming"],
     perf: "CPU-light",
     description: `
       <h3>What this shows</h3>

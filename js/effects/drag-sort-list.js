@@ -2,7 +2,7 @@ const effectDragSortList = {
   id: "js-drag-sort-list",
   name: "Drag-Sort List",
   type: "JS",
-  tags: ["interaction","forms","nav"],
+  tags: ["interaction","forms","nav","playful","minimal"],
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>

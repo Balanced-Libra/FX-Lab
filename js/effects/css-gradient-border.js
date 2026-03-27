@@ -2,7 +2,7 @@ const effectCssGradientBorder = {
   id: "css-gradient-border",
   name: "Animated Gradient Border",
   type: "CSS",
-  tags: ["css","micro-interaction","layout"],
+  tags: ["css","micro-interaction","layout","minimal","bold"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

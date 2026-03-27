@@ -2,7 +2,7 @@ const effectCursorTrail = {
   id: "canvas-cursor-trail",
   name: "Cursor Trail (soft particles)",
   type: "JS/Canvas",
-  tags: ["canvas","interaction","particles"],
+  tags: ["canvas","interaction","particles","playful","calming"],
   perf: "GPU/CPU light",
   description: `
     <h3>What this shows</h3>

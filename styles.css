@@ -229,6 +229,24 @@
     background: rgba(91, 157, 255, 0.2);
     box-shadow: 0 2px 8px rgba(91, 157, 255, 0.2);
   }
+
+  /* Vibe tags — warm gradient treatment */
+  .tag-group:first-child .tag {
+    border-color: rgba(251, 191, 36, 0.2);
+    color: rgba(251, 191, 36, 0.8);
+    background: rgba(251, 191, 36, 0.06);
+  }
+  .tag-group:first-child .tag:hover {
+    border-color: rgba(251, 191, 36, 0.4);
+    color: rgba(251, 191, 36, 1);
+    background: rgba(251, 191, 36, 0.12);
+  }
+  .tag-group:first-child .tag.active {
+    border-color: #fbbf24;
+    color: #fff;
+    background: rgba(251, 191, 36, 0.25);
+    box-shadow: 0 2px 8px rgba(251, 191, 36, 0.25);
+  }
   
   /* =============================================
      WELCOME BANNER
@@ -341,12 +359,41 @@
   }
   
   .card .thumb {
-    height: 120px;
+    height: 160px;
     background: conic-gradient(from 90deg at 50% 50%, #1a1f2e, #0f1725, #1a1f2e);
     position: relative;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s ease;
+  }
+
+  /* Live preview state — suppress overlays so the effect is visible */
+  .card .thumb.has-preview::before,
+  .card .thumb.has-preview::after {
+    opacity: 0 !important;
+    transition: none;
+  }
+
+  /* Preview content fills the thumb, non-interactive */
+  .card .thumb.has-preview > * {
+    pointer-events: none;
+  }
+
+  /* "LIVE" badge injected via JS when preview is running */
+  .live-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(91, 157, 255, 0.85);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 10;
+    backdrop-filter: blur(4px);
   }
   
   .card .thumb::before {

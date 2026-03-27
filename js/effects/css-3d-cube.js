@@ -2,7 +2,7 @@ const effectCss3DCube = {
     id: "css-3d-cube",
     name: "3D Cube (CSS)",
     type: "CSS",
-    tags: ["css","3d"],
+    tags: ["css","3d","bold","playful"],
     perf: "GPU-light",
     description: `
       <h3>What this shows</h3>

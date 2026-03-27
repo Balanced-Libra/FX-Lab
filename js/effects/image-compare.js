@@ -2,7 +2,7 @@ const effectImageCompare = {
   id: "media-image-compare",
   name: "Image Compare (Slider)",
   type: "JS+CSS",
-  tags: ["media","interaction","a11y"],
+  tags: ["media","interaction","a11y","minimal","bold"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

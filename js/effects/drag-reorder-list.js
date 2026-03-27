@@ -2,7 +2,7 @@ const effectDragReorderList = {
   id: "ui-drag-reorder",
   name: "Drag to Reorder List",
   type: "JS+CSS",
-  tags: ["interaction","a11y","forms"],
+  tags: ["interaction","a11y","forms","playful","minimal"],
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>

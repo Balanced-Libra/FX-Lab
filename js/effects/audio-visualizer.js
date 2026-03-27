@@ -2,7 +2,7 @@ const effectAudioVisualizer = {
     id: "audio-visualizer",
     name: "Audio Visualizer (Oscillator)",
     type: "JS/Audio+Canvas",
-    tags: ["audio-reactive","canvas","interaction"],
+    tags: ["audio-reactive","canvas","interaction","energetic","bold"],
     perf: "CPU-light",
     description: `
       <h3>What this shows</h3>

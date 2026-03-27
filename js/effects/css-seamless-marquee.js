@@ -2,7 +2,7 @@ const effectCssMarquee = {
   id: "css-seamless-marquee",
   name: "Seamless Marquee (Speed Slider)",
   type: "CSS",
-  tags: ["css","typography","micro-interaction"],
+  tags: ["css","typography","micro-interaction","minimal","calming"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

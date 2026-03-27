@@ -2,7 +2,7 @@ const effectFilterPlayground = {
   id: "css-filter-playground",
   name: "Filter Playground",
   type: "JS+CSS",
-  tags: ["filter","media","interaction"],
+  tags: ["filter","media","interaction","bold","playful"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

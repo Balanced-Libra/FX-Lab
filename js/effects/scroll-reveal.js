@@ -2,7 +2,7 @@ const effectScrollReveal = {
     id: "scroll-reveal-cards",
     name: "Scroll Reveal Cards",
     type: "Scroll",
-    tags: ["scroll","a11y"],
+    tags: ["scroll","a11y","minimal","calming"],
     perf: "CPU-light",
     description: `
       <h3>What this shows</h3>

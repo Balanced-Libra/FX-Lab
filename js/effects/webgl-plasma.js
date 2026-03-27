@@ -2,7 +2,7 @@ const effectWebglPlasma = {
   id: "webgl-plasma",
   name: "WebGL Plasma (Shader)",
   type: "WebGL",
-  tags: ["webgl","shader","media"],
+  tags: ["webgl","shader","media","bold","dramatic"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

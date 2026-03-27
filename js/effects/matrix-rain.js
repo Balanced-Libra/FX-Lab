@@ -2,7 +2,7 @@ const effectMatrixRain = {
   id: "canvas-matrix-rain",
   name: "Matrix Rain",
   type: "JS/Canvas",
-  tags: ["canvas","particles","typography"],
+  tags: ["canvas","particles","typography","dramatic"],
   perf: "GPU/CPU light",
   description: `
     <h3>What this shows</h3>

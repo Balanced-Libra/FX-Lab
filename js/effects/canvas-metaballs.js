@@ -2,7 +2,7 @@ const effectCanvasMetaballs = {
     id: "canvas-metaballs",
     name: "Metaballs (blur+contrast)",
     type: "JS/Canvas",
-    tags: ["canvas","filter","particles"],
+    tags: ["canvas","filter","particles","playful","calming"],
     perf: "GPU/CPU medium",
     description: `
       <h3>What this shows</h3>

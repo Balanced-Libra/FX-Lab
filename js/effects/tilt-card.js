@@ -3,7 +3,7 @@ const effectTiltCard = {
   id: "js-tilt-card",
   name: "Card Tilt (Pointer)",
   type: "JS",
-  tags: ["interaction","css","3d"],
+  tags: ["interaction","css","3d","bold","playful"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

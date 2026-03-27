@@ -2,7 +2,7 @@ const effectSvgAnalogClock = {
   id: "svg-analog-clock",
   name: "Analog Clock (SVG)",
   type: "SVG",
-  tags: ["svg","typography","interaction"],
+  tags: ["svg","typography","interaction","minimal","calming"],
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>

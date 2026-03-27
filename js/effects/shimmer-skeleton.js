@@ -2,7 +2,7 @@ const effectCssShimmer = {
   id: "css-shimmer-skeleton",
   name: "Shimmer Skeleton",
   type: "CSS",
-  tags: ["css","micro-interaction"],
+  tags: ["css","micro-interaction","minimal","calming"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

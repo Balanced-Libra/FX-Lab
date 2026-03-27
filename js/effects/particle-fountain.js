@@ -3,8 +3,15 @@ const effectParticleFountain = {
   id: "js-particle-fountain",
   name: "Particle Fountain",
   type: "JS/Canvas",
-  tags: ["canvas","particles"],
+  tags: ["canvas","particles","energetic","calming"],
   perf: "GPU/CPU medium",
+  description: `
+    <h3>What this shows</h3>
+    <ul>
+      <li>A continuous stream of glowing particles erupting upward like a fountain.</li>
+      <li>Each particle arcs through the air with gravity and drag, then fades out.</li>
+      <li>Additive blending makes overlapping particles glow brighter.</li>
+    </ul>`,
   async load(){},
   init(container){
     const c = document.createElement("canvas");

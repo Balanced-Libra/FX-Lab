@@ -2,7 +2,7 @@ const effectTextScramble = {
   id: "js-text-scramble",
   name: "Text Scramble → Resolve",
   type: "JS",
-  tags: ["interaction","typography"],
+  tags: ["interaction","typography","dramatic","energetic"],
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>

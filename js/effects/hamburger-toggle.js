@@ -2,7 +2,7 @@ const effectHamburgerToggle = {
   id: "ui-hamburger-toggle",
   name: "Hamburger ↔ X Toggle",
   type: "JS+CSS",
-  tags: ["nav","css","micro-interaction"],
+  tags: ["nav","css","micro-interaction","minimal","playful"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

@@ -2,7 +2,7 @@ const effectCssRadarSweep = {
     id: "css-radar-sweep",
     name: "Radar Sweep (Conic + Mask)",
     type: "CSS",
-    tags: ["css","filter","media"],
+    tags: ["css","filter","media","dramatic","minimal"],
     perf: "GPU-light",
     description: `
       <h3>What this shows</h3>

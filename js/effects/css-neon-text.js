@@ -2,7 +2,7 @@ const effectCssNeonText = {
   id: "css-neon-text",
   name: "Neon Text Glow",
   type: "CSS",
-  tags: ["css","typography","micro-interaction"],
+  tags: ["css","typography","micro-interaction","bold","dramatic"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

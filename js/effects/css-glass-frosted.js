@@ -2,7 +2,7 @@ const effectCssGlassFrosted = {
   id: "css-glass-frosted",
   name: "Glass Frosted Panel",
   type: "CSS",
-  tags: ["css","filter","layout"],
+  tags: ["css","filter","layout","minimal","calming"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

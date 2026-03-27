@@ -2,7 +2,7 @@ const effectScrollProgress = {
   id: "scroll-progress-bar",
   name: "Scroll Progress (Internal)",
   type: "Scroll",
-  tags: ["scroll","a11y"],
+  tags: ["scroll","a11y","minimal"],
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>

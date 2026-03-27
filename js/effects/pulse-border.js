@@ -3,7 +3,7 @@ const effectCssPulseBorder = {
   id: "css-pulse-border",
   name: "Pulse Border Card",
   type: "CSS",
-  tags: ["css","micro-interaction"],
+  tags: ["css","micro-interaction","minimal","energetic"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

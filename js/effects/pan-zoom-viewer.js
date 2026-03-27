@@ -2,7 +2,7 @@ const effectPanZoomViewer = {
   id: "js-pan-zoom-viewer",
   name: "Pan & Zoom (Image)",
   type: "JS",
-  tags: ["media","interaction","a11y"],
+  tags: ["media","interaction","a11y","minimal"],
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>

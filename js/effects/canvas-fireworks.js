@@ -2,7 +2,7 @@ const effectCanvasFireworks = {
     id: "canvas-fireworks",
     name: "Fireworks (click)",
     type: "JS/Canvas",
-    tags: ["canvas","particles","interaction"],
+    tags: ["canvas","particles","interaction","playful","energetic"],
     perf: "GPU/CPU medium",
     description: `
       <h3>What this shows</h3>

@@ -2,7 +2,7 @@ const effectRippleButton = {
   id: "js-ripple-button",
   name: "Ripple Button (Click)",
   type: "JS+CSS",
-  tags: ["interaction","css","micro-interaction"],
+  tags: ["interaction","css","micro-interaction","playful","minimal"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

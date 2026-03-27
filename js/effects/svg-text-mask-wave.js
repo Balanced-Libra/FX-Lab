@@ -2,7 +2,7 @@ const effectSvgTextMaskWave = {
   id: "svg-text-mask-wave",
   name: "Text Mask Wave",
   type: "SVG",
-  tags: ["svg","typography","filter"],
+  tags: ["svg","typography","filter","bold","dramatic"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>
@@ -51,3 +51,4 @@ const effectSvgTextMaskWave = {
   },
   teardown(){ this._cleanup?.(); }
 };
+window.EFFECTS_REGISTRY.registerEffect(effectSvgTextMaskWave);

@@ -2,7 +2,7 @@ const effectCanvasBouncingBalls = {
     id: "canvas-bouncing-balls",
     name: "Bouncing Balls",
     type: "JS/Canvas",
-    tags: ["canvas","physics"],
+    tags: ["canvas","physics","playful","energetic"],
     perf: "CPU-light",
     description: `
       <h3>What this shows</h3>

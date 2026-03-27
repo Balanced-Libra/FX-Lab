@@ -2,7 +2,7 @@ const effectJsCountUp = {
   id: "js-countup-stats",
   name: "Count-Up Stats (on reveal)",
   type: "JS",
-  tags: ["typography","scroll","a11y"],
+  tags: ["typography","scroll","a11y","energetic","bold"],
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>

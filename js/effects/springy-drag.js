@@ -2,7 +2,7 @@ const effectSpringyDrag = {
   id: "physics-springy-drag",
   name: "Springy Drag Dot",
   type: "JS/Physics",
-  tags: ["physics","interaction"],
+  tags: ["physics","interaction","playful","energetic"],
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>

@@ -2,7 +2,7 @@ const effectInfiniteScroll = {
   id: "scroll-infinite-loader",
   name: "Infinite Scroll (Internal)",
   type: "Scroll",
-  tags: ["scroll","a11y","forms"],
+  tags: ["scroll","a11y","forms","minimal","calming"],
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>

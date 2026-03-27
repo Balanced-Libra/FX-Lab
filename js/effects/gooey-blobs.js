@@ -2,7 +2,7 @@ const effectSvgGooeyBlobs = {
   id: "svg-gooey-blobs",
   name: "Gooey Blobs",
   type: "SVG/Filter",
-  tags: ["svg","filter"],
+  tags: ["svg","filter","playful","calming"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

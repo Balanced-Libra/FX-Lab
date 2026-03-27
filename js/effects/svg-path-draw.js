@@ -1,13 +1,15 @@
-// 5) SVG "Path Draw"
-const effectSvgPathDraw_v2 = {
+const effectSvgPathDrawV2 = {
   id: "svg-path-draw-v2",
-  name: "SVG Path Draw",
+  name: "SVG Path Draw (Simple)",
   type: "SVG",
-  tags: ["svg","typography"],
+  tags: ["svg","typography","animation","minimal"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>
-    <ul><li>Stroke dash draw animation</li><li>dasharray + dashoffset</li></ul>`,
+    <ul>
+      <li>A single curved SVG line that draws itself from start to finish.</li>
+      <li>Powered entirely by a CSS animation — no JavaScript animation loop.</li>
+    </ul>`,
   async load(){},
   init(container){
     container.innerHTML = `
@@ -29,4 +31,4 @@ const effectSvgPathDraw_v2 = {
   },
   teardown(){ this._cleanup?.(); }
 };
-window.EFFECTS_REGISTRY.registerEffect(effectSvgPathDraw_v2);
+window.EFFECTS_REGISTRY.registerEffect(effectSvgPathDrawV2);

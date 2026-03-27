@@ -2,7 +2,7 @@ const effectSpotlightReveal = {
   id: "css-spotlight-reveal",
   name: "Spotlight Reveal (mask)",
   type: "JS+CSS",
-  tags: ["css","interaction","filter"],
+  tags: ["css","interaction","filter","dramatic","bold"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

@@ -2,7 +2,7 @@ const effectTypewriter = {
   id: "js-typewriter",
   name: "Typewriter (Caret)",
   type: "JS",
-  tags: ["typography","interaction"],
+  tags: ["typography","interaction","minimal","playful"],
   perf: "CPU-light",
   description: `
     <h3>What this shows</h3>

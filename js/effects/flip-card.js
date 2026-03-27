@@ -2,7 +2,7 @@ const effectCssFlipCard = {
   id: "css-flip-card",
   name: "3D Flip Card (Hover/Focus)",
   type: "CSS",
-  tags: ["css","3d","a11y"],
+  tags: ["css","3d","a11y","playful","minimal"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

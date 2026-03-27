@@ -2,7 +2,7 @@ const effectSvgMorphBlob = {
   id: "svg-morph-blob",
   name: "Morphing Blob",
   type: "SVG",
-  tags: ["svg","filter","typography"],
+  tags: ["svg","filter","typography","calming","playful"],
   perf: "GPU-light",
   description: `
     <h3>What this shows</h3>

@@ -35,9 +35,10 @@ if (!window.WebGLRenderingContext) {
 
 // --- Core Functions ---
 function renderGrid(){
-  // Clean up previous magnetic effects
+  // Clean up previous magnetic effects and any running previews
   document.querySelectorAll('.thumb').forEach(thumb => {
     if (thumb._magneticCleanup) { thumb._magneticCleanup(); }
+    if (thumb._stopPreview) { thumb._stopPreview(); }
   });
   
   const q = ($search.value||"").trim().toLowerCase();
@@ -64,13 +65,57 @@ function renderGrid(){
           ${normalizedTags.slice(0,3).map(t=>`<span class="badge">#${t}</span>`).join("") || ""}
         </div>
         <div class="actions">
-          <button class="btn" data-id="${e.id}">Run</button>
+          <button class="btn" data-id="${e.id}">Open</button>
           <span class="badge">${e.perf||""}</span>
         </div>
       </div>`;
     
     addMagneticThumbEffect(card);
-    
+
+    // Live hover preview — runs the effect inside the thumb on hover
+    const thumb = card.querySelector('.thumb');
+    const SKIP_PREVIEW = e.type === 'Audio' || e.perf === 'Heavy';
+    if (!SKIP_PREVIEW) {
+      let previewTimer = null;
+
+      const startPreview = async () => {
+        const token = { cancelled: false };
+        thumb._previewToken = token;
+        try {
+          await e.load?.();
+          if (token.cancelled) return;
+          thumb.classList.add('has-preview');
+          e.init(thumb);
+          const badge = document.createElement('span');
+          badge.className = 'live-badge';
+          badge.textContent = 'LIVE';
+          thumb.appendChild(badge);
+          thumb._previewActive = true;
+        } catch (err) { /* previews are best-effort */ }
+      };
+
+      const stopPreview = () => {
+        clearTimeout(previewTimer);
+        previewTimer = null;
+        if (thumb._previewToken) thumb._previewToken.cancelled = true;
+        if (thumb._previewActive) {
+          e.teardown?.();
+          thumb._previewActive = false;
+        }
+        thumb.classList.remove('has-preview');
+      };
+
+      thumb.addEventListener('mouseenter', () => { previewTimer = setTimeout(startPreview, 250); });
+      thumb.addEventListener('mouseleave', stopPreview);
+      thumb._stopPreview = stopPreview;
+    }
+
+    // Run button opens demo
+    const runBtn = card.querySelector('.btn[data-id]');
+    if (runBtn) {
+      runBtn.addEventListener('click', (ev) => { ev.stopPropagation(); openDemo(e); });
+    }
+
     card.addEventListener("click", (ev)=>{ if (!ev.target.closest("button")) openDemo(e); });
     card.tabIndex = 0;
     card.addEventListener("keydown", (ev)=>{ if ((ev.key === "Enter" || ev.key === " ") && !ev.target.closest("button")) { ev.preventDefault(); openDemo(e); } });
@@ -109,6 +154,7 @@ async function openDemo(effect){
     $metaLoad.textContent = `load ${Math.round(performance.now()-t0)}ms`;
     
     try {
+      effect.teardown?.(); // clean up any running card preview first
       effect.init($sandbox);
       activeEffect = effect;
     } catch (err) {
@@ -130,6 +176,7 @@ function renderTags(){
   
   // Define tag categories
   const categories = {
+    'Vibe': ['calming', 'energetic', 'minimal', 'bold', 'playful', 'dramatic'],
     'Technologies': ['css', 'svg', 'canvas', 'webgl', 'audio', 'worker'],
     'Interactions': ['drag', 'keyboard', 'pointer', 'toggle'],
     'Visual Effects': ['particles', '3d', 'shader', 'filter', 'mask', 'typography', 'animation'],

@@ -2,7 +2,7 @@ const effectClipRevealGrid = {
     id: "css-clip-reveal-grid",
     name: "Clip-Path Hover Grid",
     type: "CSS",
-    tags: ["css","media","interaction"],
+    tags: ["css","media","interaction","bold","dramatic"],
     perf: "GPU-light",
     description: `
       <h3>What this shows</h3>

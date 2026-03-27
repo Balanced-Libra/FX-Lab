@@ -2,7 +2,7 @@ const effectCanvasPixelate = {
     id: "canvas-pixelate",
     name: "Pixelate Filter (Slider)",
     type: "JS/Canvas",
-    tags: ["canvas","media","interaction"],
+    tags: ["canvas","media","interaction","bold","playful"],
     perf: "GPU/CPU light",
     description: `
       <h3>What this shows</h3>
