@@ -4,7 +4,7 @@ on:
   schedule:
     # 22:00 UTC every day
     - cron: '0 22 * * *'
-  # Allow manual trigger from GitHub Actions UI
+  # Manual trigger from GitHub Actions UI (optional task override)
   workflow_dispatch:
     inputs:
       task:
@@ -24,30 +24,38 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
 
-      - name: Install Claude Code CLI
-        run: npm install -g @anthropic-ai/claude-code
+      - name: Install opencode (anomalyco fork)
+        run: bun install -g opencode-ai@latest
 
       - name: Configure git identity
         run: |
           git config user.name "FX-Lab Agency"
           git config user.email "agency@fx-lab.bot"
 
+      - name: Write opencode config (Gemini Flash)
+        run: |
+          mkdir -p ~/.config/opencode
+          cat > ~/.config/opencode/opencode.json << 'EOF'
+          {
+            "$schema": "https://opencode.ai/config.json",
+            "model": "google/gemini-2.0-flash",
+            "autoshare": false
+          }
+          EOF
+
       - name: Run daily coordinator
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          CLAUDE_CODE_NO_UPDATE_NOTIFICATION: 1
+          # Free API key from https://aistudio.google.com — add as repo secret
+          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_AI_API_KEY }}
         run: |
           TASK="${{ github.event.inputs.task }}"
           if [ -z "$TASK" ]; then
-            TASK="You are the FX-Lab Agency Coordinator. The repo is at $(pwd). Read CLAUDE.md, then .claude/MEMORY.md, then .claude/roadmap.md. Run today's automated tasks: (1) Bug Hunter — scan all js/effects/*.js for missing teardown, missing required fields, broken patterns; fix any issues found and commit with format '[agency] fix: description'. (2) Work on the highest-priority pending item in .claude/roadmap.md. (3) Update .claude/MEMORY.md with what was done and write a log entry to .claude/logs/$(date +%Y-%m-%d).md. (4) Push all commits."
+            TASK="You are the FX-Lab Agency Coordinator. The repo is at $(pwd). Read CLAUDE.md, then .claude/MEMORY.md, then .claude/roadmap.md. Run today's automated tasks: (1) Bug Hunter — scan all js/effects/*.js for missing teardown, missing required fields, broken patterns; fix any issues found and commit with format '[agency] fix: description'. (2) Work on the highest-priority pending item in .claude/roadmap.md. (3) Update .claude/MEMORY.md with what was done and write a log entry to .claude/logs/$(date +%Y-%m-%d).md. (4) Push all commits with: git push origin HEAD"
           fi
-          claude -p "$TASK" --dangerouslySkipPermissions
+          opencode -p "$TASK" -q
 
-      - name: Push any changes
-        run: |
-          git push origin HEAD
+      - name: Push any remaining changes
+        run: git diff --quiet HEAD || git push origin HEAD

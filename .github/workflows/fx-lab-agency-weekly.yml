@@ -1,4 +1,4 @@
-name: FX-Lab Agency — Weekly Effects
+name: FX-Lab Agency — Weekly Effects & Knowledge
 
 on:
   schedule:
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'effects or knowledge'
+        description: 'Task mode: effects or knowledge'
         required: false
         default: 'effects'
 
@@ -25,36 +25,49 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
 
-      - name: Install Claude Code CLI
-        run: npm install -g @anthropic-ai/claude-code
+      - name: Install opencode (anomalyco fork)
+        run: bun install -g opencode-ai@latest
 
       - name: Configure git identity
         run: |
           git config user.name "FX-Lab Agency"
           git config user.email "agency@fx-lab.bot"
 
-      - name: Determine task (effects vs knowledge)
+      - name: Write opencode config (Gemini Flash)
+        run: |
+          mkdir -p ~/.config/opencode
+          cat > ~/.config/opencode/opencode.json << 'EOF'
+          {
+            "$schema": "https://opencode.ai/config.json",
+            "model": "google/gemini-2.0-flash",
+            "autoshare": false
+          }
+          EOF
+
+      - name: Determine task
         id: task
         run: |
-          # Monday = effects, Wednesday = knowledge
-          DOW=$(date +%u)
+          DOW=$(date +%u)   # 1=Mon, 3=Wed
           MODE="${{ github.event.inputs.mode }}"
           if [ "$MODE" = "knowledge" ] || [ "$DOW" = "3" ]; then
-            echo "prompt=You are the FX-Lab Knowledge Acquirer agent. Repo is at $(pwd). Read .claude/MEMORY.md and .claude/standards.md. Search the web for new CSS/WebGL/canvas animation techniques published in the last week. Check CSS-Tricks, web.dev, Codrops, and Shadertoy for notable techniques. Write distilled findings to .claude/knowledge/$(date +%Y-%m-%d)-techniques.md. If any technique is significant enough to become a standard, also update .claude/standards.md. Add any promising effect ideas to .claude/effects-catalog.md. Commit all changes with format: '[agency] knowledge: topic summary'." >> $GITHUB_OUTPUT
+            echo "mode=knowledge" >> $GITHUB_OUTPUT
+            cat >> $GITHUB_OUTPUT << 'PROMPT'
+          prompt=You are the FX-Lab Knowledge Acquirer agent. The repo is at $(pwd). Read .claude/MEMORY.md and .claude/standards.md. Search the web for new CSS, WebGL, and canvas animation techniques from the past week. Check CSS-Tricks, web.dev, Codrops, and Shadertoy. Write distilled findings to .claude/knowledge/$(date +%Y-%m-%d)-techniques.md. If any technique warrants a new standard, update .claude/standards.md. Add promising new effect ideas to .claude/effects-catalog.md. Commit all changes: '[agency] knowledge: summary'
+          PROMPT
           else
-            echo "prompt=You are the FX-Lab Effect Researcher agent. Repo is at $(pwd). Read CLAUDE.md, .claude/MEMORY.md, .claude/standards.md, and .claude/effects-catalog.md. Pick 1-2 high-priority candidate effects from the catalog. Implement them as complete effect files in js/effects/ following the standards exactly. Add each file's script tag to index.html. Update .claude/effects-catalog.md to mark them as done. Update .claude/MEMORY.md with the new effect count. Commit each effect separately with format: '[agency] feat: add effect-name'. Push all changes." >> $GITHUB_OUTPUT
+            echo "mode=effects" >> $GITHUB_OUTPUT
+            cat >> $GITHUB_OUTPUT << 'PROMPT'
+          prompt=You are the FX-Lab Effect Researcher agent. The repo is at $(pwd). Read CLAUDE.md, .claude/MEMORY.md, .claude/standards.md, and .claude/effects-catalog.md. Pick 1-2 high-priority candidate effects from the catalog. Implement them as complete effect files in js/effects/ following standards exactly — correct id, name, type, tags (including vibe tags), perf, description (plain English, no jargon), init, teardown, and registration call. Add each file's script tag to index.html in alphabetical order. Mark them done in .claude/effects-catalog.md. Update effect count in .claude/MEMORY.md. Commit each effect separately: '[agency] feat: add effect-name'. Push all changes: git push origin HEAD
+          PROMPT
           fi
 
       - name: Run weekly task
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          CLAUDE_CODE_NO_UPDATE_NOTIFICATION: 1
-        run: claude -p "${{ steps.task.outputs.prompt }}" --dangerouslySkipPermissions
+          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_AI_API_KEY }}
+        run: opencode -p "${{ steps.task.outputs.prompt }}" -q
 
-      - name: Push any changes
-        run: git push origin HEAD
+      - name: Push any remaining changes
+        run: git diff --quiet HEAD || git push origin HEAD
