@@ -1,0 +1,53 @@
+name: FX-Lab Agency — Daily Run
+
+on:
+  schedule:
+    # 22:00 UTC every day
+    - cron: '0 22 * * *'
+  # Allow manual trigger from GitHub Actions UI
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'Override task (leave blank for daily default)'
+        required: false
+        default: ''
+
+jobs:
+  agency-daily:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Configure git identity
+        run: |
+          git config user.name "FX-Lab Agency"
+          git config user.email "agency@fx-lab.bot"
+
+      - name: Run daily coordinator
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_CODE_NO_UPDATE_NOTIFICATION: 1
+        run: |
+          TASK="${{ github.event.inputs.task }}"
+          if [ -z "$TASK" ]; then
+            TASK="You are the FX-Lab Agency Coordinator. The repo is at $(pwd). Read CLAUDE.md, then .claude/MEMORY.md, then .claude/roadmap.md. Run today's automated tasks: (1) Bug Hunter — scan all js/effects/*.js for missing teardown, missing required fields, broken patterns; fix any issues found and commit with format '[agency] fix: description'. (2) Work on the highest-priority pending item in .claude/roadmap.md. (3) Update .claude/MEMORY.md with what was done and write a log entry to .claude/logs/$(date +%Y-%m-%d).md. (4) Push all commits."
+          fi
+          claude -p "$TASK" --dangerouslySkipPermissions
+
+      - name: Push any changes
+        run: |
+          git push origin HEAD
